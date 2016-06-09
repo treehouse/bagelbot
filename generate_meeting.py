@@ -27,6 +27,7 @@ def create_meetings(store, sc, size, whos_out, pairs, force_create=False, any_pa
     Returns:
         bool: True if successful, False otherwise.
     """
+    store['history'] = store.get('history', [])
     todays_meeting = {'date': date.today(), 'attendees': []}
     found_upcoming = False
     if store.get('upcoming') and store['upcoming']['date'] == todays_meeting['date']:
